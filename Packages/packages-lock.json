@@ -7,6 +7,13 @@
       "dependencies": {},
       "hash": "7effe97b92263789317936e97bb7b2dd71de4cea"
     },
+    "com.cyberbuggy.loading-screen": {
+      "version": "https://github.com/CyberBuggy/LoadingScreen.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "694d8630029b07fb76d3c7a9d80aa9c72f3a4c83"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.4",
       "depth": 1,
