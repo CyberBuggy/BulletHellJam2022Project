@@ -1,0 +1,214 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-237174440333938203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de0f7a04940394844a505e73c3eb8cec, type: 3}
+  m_Name: ZipFileOperation
+  m_EditorClassIdentifier: 
+  actionType: 1
+  actionName: ZipFileOperation
+  note: 
+  actionEnabled: 1
+  configureEditor: 0
+  filter:
+    condition: 0
+    clauses: []
+  inputPath: $BUILDPATH
+  outputPath: $BUILDPATH
+  outputFileName: _ZIP Build/CyberBuggy - Bullet Hell Jam Project $RELEASE_TYPE -
+    v$VERSION - $ARCHITECTURE.zip
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d5886119a5c7b34d8872ab527ca3e1b, type: 3}
+  m_Name: SuperUnityBuildSettings
+  m_EditorClassIdentifier: 
+  _basicSettings:
+    baseBuildFolder: Builds
+    buildPath: CyberBuggy - Bullet Hell Jam Project $RELEASE_TYPE v$VERSION/$ARCHITECTURE
+    openFolderPostBuild: 1
+  _productParameters:
+    buildCounter: 1
+    buildVersion: 1.0.0.1
+    versionTemplate: 1.0.0.$BUILD
+    autoGenerate: 1
+    syncWithPlayerSettings: 0
+  _releaseTypeList:
+    releaseTypes:
+    - typeName: Debug
+      bundleIdentifier: com.CyberBuggy.BulletHellJam2022Project
+      companyName: CyberBuggy
+      productName: BulletHellJam2022Project
+      buildOptions: 0
+      customDefines: 
+      sceneList:
+        enabledScenes:
+        - fileGUID: e7fdf80a275084948a57e65f3c4e461f
+        - fileGUID: 7bd8f321d25801a4ab4d5b709aba9d20
+        - fileGUID: 2cda990e2423bbf4892e6590ba056729
+    - typeName: Release
+      bundleIdentifier: com.CyberBuggy.BulletHellJam2022Project
+      companyName: CyberBuggy
+      productName: BulletHellJam2022Project
+      buildOptions: 0
+      customDefines: 
+      sceneList:
+        enabledScenes:
+        - fileGUID: e7fdf80a275084948a57e65f3c4e461f
+        - fileGUID: 7bd8f321d25801a4ab4d5b709aba9d20
+        - fileGUID: 2cda990e2423bbf4892e6590ba056729
+  _platformList:
+    platforms:
+    - {fileID: 406672534261679232}
+    - {fileID: 6165697156093772028}
+  _projectConfigurations:
+    configSet:
+      _Buckets: ffffffff02000000ffffffff09000000ffffffff030000000700000004000000ffffffff0800000005000000ffffffffffffffffffffffffffffffffffffffffffffffff
+      _HashCodes: d74cc63ab1c74d600dcea96a75cc3a660d4e9934b3f3dc63510e9f596d38f6476da5e2352d6dfd4800000000000000000000000000000000000000000000000000000000
+      _Next: ffffffffffffffffffffffff01000000ffffffffffffffff00000000ffffffffffffffff0600000000000000000000000000000000000000000000000000000000000000
+      _Count: 10
+      _Version: 10
+      _FreeList: -1
+      _FreeCount: 0
+      _Keys:
+      - Debug/PC/Windows x86 (App)
+      - Debug/PC
+      - Debug/WebGL/WebGL
+      - Debug/WebGL
+      - Debug
+      - Release/PC/Windows x86 (App)
+      - Release/PC
+      - Release/WebGL/WebGL
+      - Release/WebGL
+      - Release
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      _Values:
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys:
+        - Debug/PC/Windows x86 (App)
+      - enabled: 0
+        childKeys: []
+      - enabled: 1
+        childKeys:
+        - Debug/WebGL/WebGL
+      - enabled: 1
+        childKeys:
+        - Debug/PC
+        - Debug/WebGL
+      - enabled: 0
+        childKeys: []
+      - enabled: 1
+        childKeys:
+        - Release/PC/Windows x86 (App)
+      - enabled: 0
+        childKeys: []
+      - enabled: 1
+        childKeys:
+        - Release/WebGL/WebGL
+      - enabled: 1
+        childKeys:
+        - Release/PC
+        - Release/WebGL
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+    showViewOptions: 0
+    showConfigs: 0
+    showBuildInfo: 0
+    hideDisabled: 0
+    treeView: 0
+    selectedKeyChain: 
+  _preBuildActions:
+    buildActions: []
+  _postBuildActions:
+    buildActions:
+    - {fileID: -237174440333938203}
+--- !u!114 &406672534261679232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2786f6b2301a94f4288672ff5305244c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  distributionList:
+    distributions: []
+  architectures:
+  - target: 5
+    name: Windows x86
+    enabled: 1
+    binaryNameFormat: '{0}.exe'
+  - target: 19
+    name: Windows x64
+    enabled: 0
+    binaryNameFormat: '{0}.exe'
+  variants:
+  - variantName: Build Output
+    selectedIndex: 0
+    values:
+    - App
+    - Visual Studio Solution
+  platformName: PC
+  dataDirNameFormat: '{0}_Data'
+  targetGroup: 1
+--- !u!114 &6165697156093772028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0acaf75cc66fc934ea46bf602fc7c245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  distributionList:
+    distributions: []
+  architectures:
+  - target: 20
+    name: WebGL
+    enabled: 1
+    binaryNameFormat: '{0}'
+  variants: []
+  platformName: WebGL
+  dataDirNameFormat: '{0}_Data'
+  targetGroup: 13
