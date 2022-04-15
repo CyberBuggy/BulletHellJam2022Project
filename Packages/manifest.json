@@ -2,6 +2,7 @@
   "dependencies": {
     "com.cyberbuggy.create-project-structure": "https://github.com/CyberBuggy/CreateProjectStructure.git",
     "com.cyberbuggy.loading-screen": "https://github.com/CyberBuggy/LoadingScreen.git",
+    "com.unity.cinemachine": "2.8.4",
     "com.unity.collab-proxy": "1.15.15",
     "com.unity.feature.2d": "1.0.0",
     "com.unity.ide.rider": "3.0.13",
