@@ -1,52 +1,15 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CyberBuggy
+namespace CyberBuggy.Bullets.Pooling
 {
-    [Serializable]
-    public class BulletPoolTemplate
-    {
-        public GameObject bulletPrefab;
-        public int bulletCount;
-
-        public BulletPoolTemplate(GameObject prefab, int count)
-        {
-            bulletPrefab = prefab;
-            bulletCount = count;
-        }
-    }
-    [Serializable]
-    public class BulletPool
-    {
-        public Action<BulletPool> OnDispose;
-        public GameObject[] bullets;
-
-        public void Init(int count)
-        {
-            bullets = new GameObject[count];
-        }
-
-        public void Dispose()
-        {
-            foreach (var bullet in bullets)
-            {
-                if(bullet == null)
-                    continue;
-                var bulletScript = bullet.GetComponent<Bullet>();
-                MonoBehaviour.Destroy(bullet);
-            }
-            OnDispose?.Invoke(this);
-        }
-
-    }
     public class BulletPoolMaster : MonoBehaviour
     {
         public static BulletPoolMaster Instance {get; private set;}
 
         [SerializeField] private Transform _bulletsParent;
-        [SerializeField] private List<BulletPool> pooledBullets;
+        [SerializeField] private List<BulletPool> _pooledBullets;
         private void Awake()
         {
             if(Instance != null)
@@ -57,40 +20,39 @@ namespace CyberBuggy
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
-            pooledBullets = new List<BulletPool>();
+            _pooledBullets = new List<BulletPool>();
         }
         
-        public BulletPool AddPool(BulletPoolTemplate pool)
+        public BulletPool AddPool(BulletPoolTemplate poolTemplate)
         {
-            BulletPool instantiatedBullets = new BulletPool();
-            var bulletPrefab = pool.bulletPrefab;
-            instantiatedBullets.Init(pool.bulletCount);
+            var instantiatedPool = new BulletPool();
+            var bulletPrefab = poolTemplate.bulletPrefab;
+            instantiatedPool.Init(poolTemplate.bulletCount);
 
-            for (int j = 0; j < pool.bulletCount; j++)
+            for (int j = 0; j < poolTemplate.bulletCount; j++)
             {
                 var bullet = Instantiate(bulletPrefab, Vector2.zero, Quaternion.identity, _bulletsParent);
-                instantiatedBullets.bullets[j] = bullet;
+                instantiatedPool.bullets[j] = bullet;
             }
-            instantiatedBullets.OnDispose += RemoveFromPool;
-            pooledBullets.Add(instantiatedBullets);
+            instantiatedPool.OnDispose += RemoveFromPool;
+            _pooledBullets.Add(instantiatedPool);
                 
-            return instantiatedBullets;
+            return instantiatedPool;
         }
-        public List<BulletPool> AddPools(List<BulletPoolTemplate> pools)
+        public List<BulletPool> AddPools(List<BulletPoolTemplate> poolTemplates)
         {
-            List<BulletPool> poolList = new List<BulletPool>();
-            for (int i = 0; i < pools.Count; i++)
+            var poolList = new List<BulletPool>();
+            for (int i = 0; i < poolTemplates.Count; i++)
             {
-                var instantiatedBullets = AddPool(pools[i]);
-                poolList.Add(instantiatedBullets);
+                var instantiatedPool = AddPool(poolTemplates[i]);
+                poolList.Add(instantiatedPool);
             }
             return poolList;
         }
 
         private void RemoveFromPool(BulletPool pool)
         {
-            pooledBullets.Remove(pool);
-
+            _pooledBullets.Remove(pool);
         }
     }
 }

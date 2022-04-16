@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6f2488b5b231a14e8c4452941651d8c, type: 3}
-  m_Name: Spread LockOn
+  m_Name: Pores
   m_EditorClassIdentifier: 
   patterns:
   - bulletPrefab: {fileID: 8845680681111045382, guid: 359eb4ccd1282734da1ab9cfa7875a47, type: 3}
-    useLockOn: 1
-    fireRate: 0.01
-    spinRate: 0
+    useLockOn: 0
+    fireRate: 0.1
+    spinRate: 1000
     initialRotation: 0
-    accuracyWeight: 0.5
-    spreadArcRange: {x: -60, y: 60}
-    bulletsPerShot: 1
-    arcRange: 360
-    usesBurst: 1
-    burstDuration: 2
-    burstShotCount: 25
+    accuracyWeight: 1
+    spreadArcRange: {x: -360, y: 360}
+    bulletsPerShot: 6
+    arcRange: 166
+    usesBurst: 0
+    burstDuration: 0.3
+    burstShotCount: 0
     maxBulletsPooled: 500

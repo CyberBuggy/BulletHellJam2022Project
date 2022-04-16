@@ -97,8 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb90894903014d4792ed8ad685163a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usePooling: 1
-  destroysOtherBullets: 0
+  _usePooling: 1
+  _destroysOtherBullets: 0
+  _damagesOwner: 0
   bulletData:
     BulletState:
       MovementState:
@@ -112,7 +113,7 @@ MonoBehaviour:
       bulletDamage: 1
       BulletLifeTime: 3
       MovementSettings:
-        MaxSpeed: 4
+        MaxSpeed: 6
         ZeroToMaxSpeed: 1
         MaxSpeedToZero: 1
     MovementInput:

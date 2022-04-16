@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Test Pattern
   m_EditorClassIdentifier: 
   patterns:
-  - bulletPrefab: {fileID: 8845680681111045382, guid: 359eb4ccd1282734da1ab9cfa7875a47, type: 3}
+  - bulletPrefab: {fileID: 8845680681111045382, guid: daa975efab4267647b38ce1fb40658b8, type: 3}
     useLockOn: 0
-    fireRate: 0.09
+    fireRate: 0.18
     spinRate: 30
     initialRotation: 90
-    accuracy: 0
-    accuracyAngleRange: {x: 0, y: 0}
+    accuracy: 1
+    accuracyAngleRange: {x: -20, y: 20}
     bulletsPerShot: 8
     maxArrayAngleRange: 180
     isBurst: 0
     burstDuration: 2
     BurstShotCount: 10
-    maxBulletsPooled: 200
+    maxBulletsPooled: 600

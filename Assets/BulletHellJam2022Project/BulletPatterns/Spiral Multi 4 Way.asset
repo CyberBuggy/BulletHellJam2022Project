@@ -18,50 +18,50 @@ MonoBehaviour:
     fireRate: 0.08
     spinRate: 200
     initialRotation: 0
-    accuracy: 1
-    accuracyAngleRange: {x: 0, y: 0}
+    accuracyWeight: 1
+    spreadArcRange: {x: 0, y: 0}
     bulletsPerShot: 4
-    maxArrayAngleRange: 20
-    isBurst: 0
+    arcRange: 360
+    usesBurst: 0
     burstDuration: 2
-    BurstShotCount: 5
-    maxBulletsPooled: 250
+    burstShotCount: 0
+    maxBulletsPooled: 500
   - bulletPrefab: {fileID: 8845680681111045382, guid: 359eb4ccd1282734da1ab9cfa7875a47, type: 3}
     useLockOn: 0
-    fireRate: 0.08
+    fireRate: 0.16
     spinRate: 200
     initialRotation: 90
-    accuracy: 0
-    accuracyAngleRange: {x: 0, y: 0}
+    accuracyWeight: 1
+    spreadArcRange: {x: 0, y: 0}
     bulletsPerShot: 4
-    maxArrayAngleRange: 20
-    isBurst: 0
+    arcRange: 360
+    usesBurst: 0
     burstDuration: 2
-    BurstShotCount: 5
+    burstShotCount: 0
     maxBulletsPooled: 250
   - bulletPrefab: {fileID: 8845680681111045382, guid: 359eb4ccd1282734da1ab9cfa7875a47, type: 3}
     useLockOn: 0
     fireRate: 0.08
     spinRate: 200
     initialRotation: 180
-    accuracy: 0
-    accuracyAngleRange: {x: 0, y: 0}
+    accuracyWeight: 1
+    spreadArcRange: {x: 0, y: 0}
     bulletsPerShot: 4
-    maxArrayAngleRange: 20
-    isBurst: 0
+    arcRange: 360
+    usesBurst: 0
     burstDuration: 2
-    BurstShotCount: 5
+    burstShotCount: 0
     maxBulletsPooled: 250
   - bulletPrefab: {fileID: 8845680681111045382, guid: 359eb4ccd1282734da1ab9cfa7875a47, type: 3}
     useLockOn: 0
-    fireRate: 0.08
+    fireRate: 0.16
     spinRate: 200
     initialRotation: 270
-    accuracy: 0
-    accuracyAngleRange: {x: 0, y: 0}
+    accuracyWeight: 1
+    spreadArcRange: {x: 0, y: 0}
     bulletsPerShot: 4
-    maxArrayAngleRange: 20
-    isBurst: 0
+    arcRange: 360
+    usesBurst: 0
     burstDuration: 2
-    BurstShotCount: 5
-    maxBulletsPooled: 250
+    burstShotCount: 0
+    maxBulletsPooled: 500

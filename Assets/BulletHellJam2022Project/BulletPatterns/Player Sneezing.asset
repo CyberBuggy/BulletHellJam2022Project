@@ -18,11 +18,11 @@ MonoBehaviour:
     fireRate: 0.014
     spinRate: 1000
     initialRotation: 0
-    accuracy: 0.6
-    accuracyAngleRange: {x: -25, y: 25}
+    accuracyWeight: 0.96
+    spreadArcRange: {x: -360, y: 360}
     bulletsPerShot: 3
-    maxArrayAngleRange: 360
-    isBurst: 0
+    arcRange: 360
+    usesBurst: 0
     burstDuration: 0.3
-    BurstShotCount: 4
-    maxBulletsPooled: 800
+    burstShotCount: 0
+    maxBulletsPooled: 500

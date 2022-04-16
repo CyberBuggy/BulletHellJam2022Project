@@ -7,8 +7,102 @@ using UnityEngine;
 using UnityEngine.Jobs;
 using ReadOnlyAttribute = Unity.Collections.ReadOnlyAttribute;
 
-namespace CyberBuggy
+namespace CyberBuggy.Bullets
 {
+    public class Bullet : MonoBehaviour
+    {
+
+        [Header("Settings")]
+        [SerializeField] private bool _usePooling;
+        [SerializeField] private bool _destroysOtherBullets;
+        [SerializeField] private bool _damagesOwner;
+        public BulletData bulletData;
+        private Transform _bulletOwner;
+        public Transform BulletOwner { get => _bulletOwner; set => _bulletOwner = value;}
+        private Coroutine _bulletLifetimeCoroutine;
+        private float lifetime;
+        private void Start()
+        {
+            lifetime = bulletData.BulletSettings.BulletLifeTime;
+            if(!_usePooling)
+                _bulletLifetimeCoroutine = StartCoroutine(Co_LifetimeCountdown(lifetime));
+            
+        }
+        private void OnEnable()
+        {
+            if(_usePooling)
+            {
+                if(_bulletLifetimeCoroutine != null)
+                    StopCoroutine(_bulletLifetimeCoroutine);
+                lifetime = bulletData.BulletSettings.BulletLifeTime;
+                _bulletLifetimeCoroutine = StartCoroutine(Co_LifetimeCountdown(lifetime));  
+            }
+        }
+        private void Explode()
+        {
+            if(_bulletLifetimeCoroutine != null)
+                StopCoroutine(_bulletLifetimeCoroutine);
+            
+            if(!_usePooling)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            gameObject.SetActive(false);
+                
+        }
+        private IEnumerator Co_LifetimeCountdown(float seconds)
+        {
+            while(seconds > 0)
+            {
+                seconds -= Time.deltaTime;
+                lifetime = seconds;
+                yield return null;
+            }
+            
+            Explode();
+        }
+        private void OnTriggerEnter2D(Collider2D collider)
+        {
+            if(collider.isTrigger)
+                return;
+            
+            if(_damagesOwner && collider.transform == _bulletOwner)
+                return;
+            
+            var hasCollidedWithAnotherBullet = collider.TryGetComponent(out Bullet collidedBullet);
+
+            if(hasCollidedWithAnotherBullet)
+            {
+                if(!_destroysOtherBullets)
+                    return;
+                
+                if(collidedBullet.BulletOwner == _bulletOwner)
+                    return;
+                
+                collidedBullet.Explode();
+                Explode();
+
+                return;
+            }
+
+            var hasCollidedWithDamageable = collider.TryGetComponent(out IDamageable receiver);
+            if(hasCollidedWithDamageable)
+            {
+                if (_bulletOwner != null)
+                {
+                    var actor = _bulletOwner.GetComponent<IActor>();
+
+                    receiver.TryTakeDamage(bulletData.BulletSettings.bulletDamage, actor);
+                }
+                else
+                    receiver.TryTakeDamage(bulletData.BulletSettings.bulletDamage, null);
+
+            }
+
+            Explode();
+        }
+    }
     [Serializable] 
     public struct BulletSettings
     {
@@ -33,117 +127,6 @@ namespace CyberBuggy
 
         public MovementInput MovementInput;
     }
-    public class Bullet : MonoBehaviour
-    {
-
-        [Header("Settings")]
-
-        [SerializeField] private bool usePooling;
-        [SerializeField] private bool destroysOtherBullets;
-        public BulletData bulletData;
-        private Transform bulletOwner;
-        public Transform BulletOwner { get => bulletOwner; set => bulletOwner = value;}
-        private Coroutine bulletLifetimeCoroutine;
-        private bool wasEnabledLastFrame;
-        private bool enabledOnce;
-        private float lifetime;
-        private void Start()
-        {
-            lifetime = bulletData.BulletSettings.BulletLifeTime;
-            if(!usePooling)
-                bulletLifetimeCoroutine = StartCoroutine(LifetimeCountdown(lifetime));
-            
-        }
-        private void Explode()
-        {
-            enabledOnce = true;
-
-            if(bulletLifetimeCoroutine != null)
-                StopCoroutine(bulletLifetimeCoroutine);
-            
-            if(!usePooling)
-            {
-                Destroy(gameObject);
-                return;
-            }
-            gameObject.SetActive(false);
-                
-        }
-        private IEnumerator LifetimeCountdown(float seconds)
-        {
-            while(seconds > 0)
-            {
-                seconds -= Time.deltaTime;
-                lifetime = seconds;
-                yield return null;
-            }
-            
-            Explode();
-        }
-        private void OnTriggerEnter2D(Collider2D collider)
-        {
-            if(collider.isTrigger)
-                return;
-            
-            if(collider.transform == bulletOwner)
-                return;
-            
-            var hasCollidedWithAnotherBullet = collider.TryGetComponent(out Bullet collidedBullet);
-
-            if(hasCollidedWithAnotherBullet)
-            {
-                if(!destroysOtherBullets)
-                    return;
-                
-                if(collidedBullet.bulletOwner == bulletOwner)
-                    return;
-                
-                collidedBullet.Explode();
-                Explode();
-
-                return;
-            }
-
-            var hasCollidedWithDamageable = collider.TryGetComponent(out IDamageable receiver);
-            if(hasCollidedWithDamageable)
-            {
-                if (bulletOwner != null)
-                {
-                    var actor = bulletOwner.GetComponent<IActor>();
-
-                    receiver.TryTakeDamage(bulletData.BulletSettings.bulletDamage, actor);
-                }
-                else
-                    receiver.TryTakeDamage(bulletData.BulletSettings.bulletDamage, null);
-
-            }
-
-            if(bulletLifetimeCoroutine != null)
-                StopCoroutine(bulletLifetimeCoroutine);
-            Explode();
-        }
-        private void OnEnable()
-        {
-            if(usePooling)
-            {
-                if(bulletLifetimeCoroutine != null)
-                    StopCoroutine(bulletLifetimeCoroutine);
-                lifetime = bulletData.BulletSettings.BulletLifeTime;
-                bulletLifetimeCoroutine = StartCoroutine(LifetimeCountdown(lifetime));
-                
-            }
-            
-            wasEnabledLastFrame = true;
-        }
-
-        private void OnDisable()
-        {    
-            wasEnabledLastFrame = false;
-        }
-
-        
-    }
-
     [BurstCompile]
     public struct BulletJob : IJobParallelForTransform 
     {
