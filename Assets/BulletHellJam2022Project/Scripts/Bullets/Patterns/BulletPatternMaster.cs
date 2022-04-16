@@ -22,7 +22,7 @@ namespace CyberBuggy
         public float initialRotation;
 
         [Header("Accuracy Options")]
-        public float accuracy = 1;
+        [Range(0,1)] public float accuracy = 1;
         public Vector2 accuracyAngleRange;
         
         [Header("Bullet Distribution")]

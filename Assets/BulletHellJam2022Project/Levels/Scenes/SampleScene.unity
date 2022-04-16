@@ -448,7 +448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootingEnabled: 1
-  patternMaster: {fileID: 11400000, guid: 0558cc0641432864ab2976a663e469c9, type: 2}
+  patternMaster: {fileID: 11400000, guid: 5810e509fcd3e174f878a4188408d4b7, type: 2}
   bulletFirePoint: {fileID: 130127423}
   bulletOwner: {fileID: 1936313120}
 --- !u!1001 &6066442555676567251
