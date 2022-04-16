@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6f2488b5b231a14e8c4452941651d8c, type: 3}
+  m_Name: Linear LockOn
+  m_EditorClassIdentifier: 
+  patterns:
+  - bulletPrefab: {fileID: 8845680681111045382, guid: 359eb4ccd1282734da1ab9cfa7875a47, type: 3}
+    useLockOn: 1
+    fireRate: 0.15
+    spinRate: 0
+    initialRotation: 0
+    accuracy: 1
+    accuracyAngleRange: {x: 0, y: 0}
+    bulletsPerShot: 1
+    maxArrayAngleRange: 0
+    isBurst: 1
+    burstDuration: 2
+    BurstShotCount: 5
+    maxBulletsPooled: 50
