@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: 5 Way
   m_EditorClassIdentifier: 
   patterns:
-  - bulletPrefab: {fileID: 970192466851044737, guid: d97e0e7ded6fe8b4e89da2edce7bbf74, type: 3}
+  - bulletPrefab: {fileID: 8845680681111045382, guid: 359eb4ccd1282734da1ab9cfa7875a47, type: 3}
     useLockOn: 1
     fireRate: 0.15
     spinRate: 0
-    initialRotation: 0
-    accuracy: 1
-    accuracyAngleRange: {x: 0, y: 0}
+    initialRotation: 330
+    accuracyWeight: 1
+    spreadArcRange: {x: 0, y: 0}
     bulletsPerShot: 5
-    maxArrayAngleRange: 65
-    isBurst: 1
+    arcRange: 45
+    usesBurst: 1
     burstDuration: 2
-    BurstShotCount: 5
-    maxBulletsPooled: 150
+    burstShotCount: 4
+    maxBulletsPooled: 300

@@ -17,12 +17,12 @@ MonoBehaviour:
     useLockOn: 1
     fireRate: 0.15
     spinRate: 0
-    initialRotation: 0
-    accuracy: 1
-    accuracyAngleRange: {x: 0, y: 0}
+    initialRotation: 330
+    accuracyWeight: 1
+    spreadArcRange: {x: 0, y: 0}
     bulletsPerShot: 8
-    maxArrayAngleRange: 100
-    isBurst: 1
+    arcRange: 60
+    usesBurst: 1
     burstDuration: 2
-    BurstShotCount: 5
+    burstShotCount: 4
     maxBulletsPooled: 300

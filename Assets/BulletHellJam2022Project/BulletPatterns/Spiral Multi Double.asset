@@ -33,7 +33,7 @@ MonoBehaviour:
     initialRotation: -180
     accuracyWeight: 1
     spreadArcRange: {x: 0, y: 0}
-    bulletsPerShot: 37
+    bulletsPerShot: 4
     arcRange: 360
     usesBurst: 0
     burstDuration: 0
